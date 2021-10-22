@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+      <script>
+  //// task number 01
+        var today = new Date();
+         var day = today.getDay();
+             var daylist = ["Sunday","Monday","Tuesday","Wednesday ","Thursday","Friday","Saturday"];
+         console.log("Today is : " + daylist[day] + ".");
+             var hour = today.getHours();
+           var minute = today.getMinutes();
+           var second = today.getSeconds();
+            var prepand = (hour >= 12)? " PM ":" AM ";
+           hour = (hour >= 12)? hour - 12: hour;
+           if (hour===0 && prepand===' PM ') 
+  { 
+             if (minute===0 && second===0)
+  { 
+                    hour=12;
+              prepand=' Noon';
+  } 
+           else
+  { 
+             hour=12;
+              prepand=' PM';
+  } 
+  } 
+           if (hour===0 && prepand===' AM ') 
+  { 
+          if (minute===0 && second===0)
+  { 
+      hour=12;
+           prepand=' Midnight';
+  } 
+  else
+  { 
+      hour=12;
+              prepand=' AM';
+  } 
+  } 
+                  console.log("Current Time : "+hour + prepand + " : " + minute + " : " + second);
+
+// task no 02
+
+     var today = new Date();
+       var dd = today.getDate();
+
+    var mm = today.getMonth()+1; 
+       var yyyy = today.getFullYear();
+    if(dd<10) 
+{
+       dd='0'+dd;
+} 
+
+        if(mm<10) 
+{
+      mm='0'+mm;
+} 
+       today = mm+'-'+dd+'-'+yyyy;
+       console.log(today);
+       today = mm+'/'+dd+'/'+yyyy;
+         console.log(today);
+      today = dd+'-'+mm+'-'+yyyy;
+     console.log(today);
+       today = dd+'/'+mm+'/'+yyyy;
+     console.log(today);
+
+  //task no 03 
+
+
+
+     var side1 = 5; 
+       var side2 = 6; 
+    var side3 = 7; 
+    var s = (side1 + side2 + side3)/2; 
+    var area =  Math.sqrt(s*((s-side1)*(s-side2)*(s-side3)));
+     console.log(area);
+
+
+       function array_element_replace(arr, old_value, new_value) {
+       for (var i = 0; i < arr.length; i++) {
+        if (arr[i] === old_value) {
+          arr[i] = new_value;
+    }
+  }
+           return arr;
+}
+num = [1, 2, 3, 2, 2, 8, 1, 9];
+console.log("Original Array: "+num);
+console.log(array_element_replace(num, 2, 5));
+
+//task  20
+
+
+function array_element_mode(arr) {
+  var ctr = [],
+    ans = 0;
+
+  for(var i = 0; i < 10; i++) {
+    ctr.push(0);
+  }
+  for(var i = 0; i < arr.length; i++) {
+    ctr[arr[i] - 1]++;
+    if(ctr[arr[i] - 1] > ctr[ans]) {
+      ans = arr[i] - 1;
+    }
+  }
+  return ans + 1;  
+}
+console.log(array_element_mode([1, 2, 3, 2, 2, 8, 1, 9]))
+
+//task no 19
+
+function Kth_greatest_in_array(arr, k) {
+
+for (var i = 0; i < k; i++) {
+  var max_index = i,
+    tmp = arr[i];
+
+  for (var j = i + 1; j < arr.length; j++) {
+    if (arr[j] > arr[max_index]) {
+      max_index = j;
+    }
+  }
+
+  arr[i] = arr[max_index];
+  arr[max_index] = tmp;
+}
+
+return arr[k - 1];
+}
+
+console.log(Kth_greatest_in_array([1,2,6,4,5], 3))
+console.log(Kth_greatest_in_array([-10,-25,-47,-36,0], 1))
+
+//task no 18
+
+
+function all_max(nums) 
+ {
+    var max_val = nums[0] > nums[2] ? nums[0] : nums[2];
+
+    nums[0] = max_val;
+    nums[1] = max_val;
+    nums[2] = max_val;
+
+    return nums;
+}
+console.log(all_max([20, 30, 40]));
+console.log(all_max([-7, -9, 0]));
+console.log(all_max([12, 10, 3]));  
+
+//task no  16
+
+
+function reverse3(array) {
+    return array.map((element, idx, arr) => arr[(arr.length - 1) - idx]);
+}
+
+console.log(reverse3([5, 4, 3])); 
+console.log(reverse3([1, 0, -1]));  
+console.log(reverse3([2, 3, 1]));
+   
+
+// task no 15
+function time_convert(num)
+ { 
+  var hours = Math.floor(num / 60);  
+  var minutes = num % 60;
+  return hours + ":" + minutes;         
+}
+
+console.log(time_convert(71));
+console.log(time_convert(450));
+console.log(time_convert(1441));
+
+
+/// task no 13
+
+function max_of_three(o, p, q) 
+ {
+  max_val = 0;
+  if (o > p)
+  {
+    max_val = o;
+  } else
+  {
+    max_val = p;
+  }
+  if (q > max_val) 
+  {
+    max_val = q;
+  }
+  return max_val;
+}
+
+console.log(max_of_three(3,4,10));
+console.log(max_of_three(0,-123450,-20));
+console.log(max_of_three(0,51540,44750));
+ ////task no 12
+
+function testhundred(x) {
+  return ((Math.abs(100 - x) <= 20) ||
+	 (Math.abs(400 - x) <= 20));
+}
+
+console.log(testhundred(10));
+console.log(testhundred(90));
+console.log(testhundred(99));
+console.log(testhundred(199));
+console.log(testhundred(200));
+
+
+
+//task no 11
+function sumTriple (x, y) {
+  if (x == y) {
+    return 3 * (x + y);
+    } 
+   else
+   {
+    return (x + y);
+   }
+ }
+console.log(sumTriple(10, 20));
+console.log(sumTriple(10, 10));
+
+
+
+     
+
+
+
+
+      </script>
+</body>
+</html>
